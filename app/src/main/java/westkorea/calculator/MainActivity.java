@@ -1,5 +1,6 @@
 package westkorea.calculator;
 
+import android.content.Context;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +11,9 @@ import android.view.MenuItem;
 import android.view.View; // Whenever you use widgets
 import android.widget.Button; //Using buttons
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Button 0 Event Handler
         button0.setOnClickListener(
-            //Button 0 interface
+                //Button 0 interface
                 new Button.OnClickListener()
                 {
                     //Button 0 callback method
@@ -197,6 +200,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick (View v)
                     {
                         TextView output = (TextView) findViewById(R.id.editText);
+
                         String str = output.getText().toString();
 
                         if (str.indexOf('.') == -1)//if there currently is no decimal point already
@@ -302,42 +306,48 @@ public class MainActivity extends AppCompatActivity {
         );
         //ButtonE (equals) Event Handler
         buttonE.setOnClickListener (
-            new Button.OnClickListener()
-            {
-                public void onClick (View v) {
+                new Button.OnClickListener()
+                {
+                    public void onClick (View v) {
 
-                    TextView output = (TextView) findViewById(R.id.editText);
-                    String str = output.getText().toString();
-                    if (str.length() > 0) { //helps prevent NULL errors when there is no string in the display
-                        tempDouble2 = Double.parseDouble(output.getText().toString());
+                        TextView output = (TextView) findViewById(R.id.editText);
+                        DecimalFormat round = new DecimalFormat("#.######");
+                        round.setRoundingMode(RoundingMode.CEILING);
+                        String str = output.getText().toString();
+                        if (str.length() > 0) { //helps prevent NULL errors when there is no string in the display
+                            tempDouble2 = Double.parseDouble(output.getText().toString());
 
-                        if (sign == "+")
-                        {
-                            output.setText(Double.toString(tempDouble1 + tempDouble2));
-                        }
-                        else if (sign == "-")
-                        {
-                            output.setText(Double.toString(tempDouble1 - tempDouble2));
-                        }
-                        else if (sign == "X")
-                        {
-                            output.setText(Double.toString(tempDouble1 * tempDouble2));
-                        }
-                        else if (sign == "/")
-                        {
-                            if (tempDouble2 == 0) //can't divide by zero
+                            if (sign == "+")
                             {
-                                output.setText("Error: Divide by Zero");
+                                output.setText(round.format(tempDouble1 + tempDouble2));
                             }
-                            else
+                            else if (sign == "-")
                             {
-                                output.setText(Double.toString(tempDouble1 / tempDouble2));
+                                output.setText(round.format(tempDouble1 - tempDouble2));
                             }
+                            else if (sign == "X")
+                            {
+                                output.setText(round.format(tempDouble1 * tempDouble2));
+                            }
+                            else if (sign == "/")
+                            {
+
+                                if (tempDouble2 == 0)
+                                {
+                                    output.setText("");
+                                    Context appContext = getApplicationContext();
+                                    Toast message = Toast.makeText(appContext,"Cannot divide by zero", Toast.LENGTH_SHORT);
+                                    message.show();
+                                }
+                                else
+                                {
+                                    output.setText(round.format(tempDouble1 / tempDouble2));
+                                }
+                            }
+                            sign = ""; //reset the sign
                         }
-                        sign = "";
                     }
                 }
-            }
         );
         //Button DEL Event Handler
         buttonDEL.setOnClickListener(
