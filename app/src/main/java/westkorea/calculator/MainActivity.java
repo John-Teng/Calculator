@@ -236,8 +236,14 @@ public class MainActivity extends AppCompatActivity {
                     {
                         TextView output = (TextView)findViewById(R.id.editText);
                         String str = output.getText().toString();
+
                         if (str.length()>0) {
-                            tempDouble1 = Double.parseDouble(output.getText().toString());
+                            if (str.equals("."))
+
+                                tempDouble1 = 0.0;
+                            else
+                                tempDouble1 = Double.parseDouble(output.getText().toString());
+
                             output.setText("");
                             sign = "+";
                         }
@@ -256,7 +262,12 @@ public class MainActivity extends AppCompatActivity {
                         TextView output = (TextView)findViewById(R.id.editText);
                         String str = output.getText().toString();
                         if (str.length()>0) {
-                            tempDouble1 = Double.parseDouble(output.getText().toString());
+                            if (str.equals("."))
+
+                                tempDouble1 = 0.0;
+                            else
+                                tempDouble1 = Double.parseDouble(output.getText().toString());
+
                             output.setText("");
                             sign = "/";
                         }
@@ -276,7 +287,11 @@ public class MainActivity extends AppCompatActivity {
                         TextView output = (TextView)findViewById(R.id.editText);
                         String str = output.getText().toString();
                         if (str.length()>0) {
-                            tempDouble1 = Double.parseDouble(output.getText().toString());
+                            if (str.equals("."))
+                                tempDouble1 = 0.0;
+                            else
+                                tempDouble1 = Double.parseDouble(output.getText().toString());
+
                             output.setText("");
                             sign = "-";
                         }
@@ -296,7 +311,12 @@ public class MainActivity extends AppCompatActivity {
                         TextView output = (TextView)findViewById(R.id.editText);
                         String str = output.getText().toString();
                         if (str.length()>0) {
-                            tempDouble1 = Double.parseDouble(output.getText().toString());
+                            if (str.equals("."))
+
+                                tempDouble1 = 0.0;
+                            else
+                                tempDouble1 = Double.parseDouble(output.getText().toString());
+
                             output.setText("");
                             sign = "X";
                         }
@@ -315,7 +335,11 @@ public class MainActivity extends AppCompatActivity {
                         round.setRoundingMode(RoundingMode.CEILING);
                         String str = output.getText().toString();
                         if (str.length() > 0) { //helps prevent NULL errors when there is no string in the display
-                            tempDouble2 = Double.parseDouble(output.getText().toString());
+                            if (str.equals("."))
+
+                                tempDouble2 = 0.0;
+                            else
+                                tempDouble2 = Double.parseDouble(output.getText().toString());
 
                             if (sign == "+")
                             {
