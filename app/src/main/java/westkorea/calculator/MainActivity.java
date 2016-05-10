@@ -2,6 +2,7 @@ package westkorea.calculator;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
-
+    MediaPlayer touchSound;
 
 
     public String sign = "";
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         Button buttonC = (Button)findViewById(R.id.buttonC);
         Button buttonE = (Button)findViewById(R.id.buttonE);
         Button buttonDEL = (Button)findViewById(R.id.buttonDEL);
+        //instantiate and assign sound
+        touchSound = MediaPlayer.create(this, R.raw.touch);
 
         //Button 0 Event Handler
         button0.setOnClickListener(
@@ -61,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
                     //Button 0 callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
+
                         TextView output = (TextView)findViewById(R.id.editText);
                         output.append("0");
                     }
@@ -75,8 +80,11 @@ public class MainActivity extends AppCompatActivity {
                     //Button 1 callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
+
                         TextView output = (TextView)findViewById(R.id.editText);
                         output.append("1");
+
                     }
                 }
 
@@ -89,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
                     //Button 2 callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
+
                         TextView output = (TextView)findViewById(R.id.editText);
                         output.append("2");
                     }
@@ -103,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
                     //Button 3 callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
+
                         TextView output = (TextView)findViewById(R.id.editText);
                         output.append("3");
                     }
@@ -117,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
                     //Button 4 callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
+
                         TextView output = (TextView)findViewById(R.id.editText);
                         output.append("4");
                     }
@@ -131,6 +145,8 @@ public class MainActivity extends AppCompatActivity {
                     //Button 5 callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
+
                         TextView output = (TextView)findViewById(R.id.editText);
                         output.append("5");
                     }
@@ -145,6 +161,8 @@ public class MainActivity extends AppCompatActivity {
                     //Button 6 callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
+
                         TextView output = (TextView)findViewById(R.id.editText);
                         output.append("6");
                     }
@@ -159,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
                     //Button 7 callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
+
                         TextView output = (TextView)findViewById(R.id.editText);
                         output.append("7");
                     }
@@ -173,6 +193,8 @@ public class MainActivity extends AppCompatActivity {
                     //Button 8 callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
+
                         TextView output = (TextView)findViewById(R.id.editText);
                         output.append("8");
                     }
@@ -187,6 +209,8 @@ public class MainActivity extends AppCompatActivity {
                     //Button 9 callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
+
                         TextView output = (TextView)findViewById(R.id.editText);
                         output.append("9");
                     }
@@ -201,6 +225,7 @@ public class MainActivity extends AppCompatActivity {
                     //Button 9 callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
                         TextView output = (TextView) findViewById(R.id.editText);
 
                         String str = output.getText().toString();
@@ -209,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
                         {
                             output.append(".");
                         }
+
                     }
                 }
         );
@@ -222,6 +248,7 @@ public class MainActivity extends AppCompatActivity {
                     //Button C callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
                         TextView output = (TextView)findViewById(R.id.editText);
                         output.setText("");
                     }
@@ -236,6 +263,7 @@ public class MainActivity extends AppCompatActivity {
                     //Button P callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
                         TextView output = (TextView)findViewById(R.id.editText);
                         String str = output.getText().toString();
 
@@ -261,6 +289,7 @@ public class MainActivity extends AppCompatActivity {
                     //Button D callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
                         TextView output = (TextView)findViewById(R.id.editText);
                         String str = output.getText().toString();
                         if (str.length()>0) {
@@ -285,6 +314,7 @@ public class MainActivity extends AppCompatActivity {
                     //Button M callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
 
                         TextView output = (TextView)findViewById(R.id.editText);
                         String str = output.getText().toString();
@@ -310,6 +340,7 @@ public class MainActivity extends AppCompatActivity {
                     //Button M callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
                         TextView output = (TextView)findViewById(R.id.editText);
                         String str = output.getText().toString();
                         if (str.length()>0) {
@@ -331,6 +362,7 @@ public class MainActivity extends AppCompatActivity {
                 new Button.OnClickListener()
                 {
                     public void onClick (View v) {
+                        touchSound.start();
 
                         TextView output = (TextView) findViewById(R.id.editText);
                         DecimalFormat round = new DecimalFormat("#.######");
@@ -383,6 +415,7 @@ public class MainActivity extends AppCompatActivity {
                     //Button 6 callback method
                     public void onClick (View v)
                     {
+                        touchSound.start();
                         TextView output = (TextView)findViewById(R.id.editText);
                         String str = output.getText().toString();
                         if (str.length()>0)
