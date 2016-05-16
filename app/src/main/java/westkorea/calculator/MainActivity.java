@@ -19,7 +19,7 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
-    MediaPlayer touchSound;
+    MediaPlayer touchSound; //Use MediaPlayer to play sound
 
 
     public String sign = "";
@@ -365,13 +365,13 @@ public class MainActivity extends AppCompatActivity {
                         touchSound.start();
 
                         TextView output = (TextView) findViewById(R.id.editText);
-                        DecimalFormat round = new DecimalFormat("#.######");
+                        DecimalFormat round = new DecimalFormat("#.######"); //round to maximum of 6 decimals
                         round.setRoundingMode(RoundingMode.CEILING);
                         String str = output.getText().toString();
                         if (str.length() > 0) { //helps prevent NULL errors when there is no string in the display
                             if (str.equals("."))
 
-                                tempDouble2 = 0.0;
+                                tempDouble2 = 0.0; //Single decimals will be represented as a 0
                             else
                                 tempDouble2 = Double.parseDouble(output.getText().toString());
 
@@ -394,7 +394,7 @@ public class MainActivity extends AppCompatActivity {
                                 {
                                     output.setText("");
                                     Context appContext = getApplicationContext();
-                                    Toast message = Toast.makeText(appContext,"Cannot divide by zero", Toast.LENGTH_SHORT);
+                                    Toast message = Toast.makeText(appContext,"Cannot divide by zero", Toast.LENGTH_SHORT); //Makes toast to alert user
                                     message.show();
                                 }
                                 else
@@ -433,7 +433,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                             else
                             {
-                                output.setText(str.substring(0, str.length() - 1));
+                                output.setText(str.substring(0, str.length() - 1));//delete only 1 digit
                             }
                         }
 
