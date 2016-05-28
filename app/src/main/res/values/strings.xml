@@ -20,4 +20,5 @@
     <string name="Equals">=</string>
     <string name="Delete">Del</string>
     <string name="Decimal">.</string>
+    <string name="Factorial">!</string>
 </resources>

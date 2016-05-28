@@ -293,9 +293,10 @@
         android:layout_above="@+id/button9"
         android:layout_alignRight="@+id/buttonP"
         android:layout_alignEnd="@+id/buttonP"
-        android:layout_toRightOf="@+id/button8"
         android:layout_toEndOf="@+id/button8"
-        android:layout_below="@+id/editText" />
+        android:layout_below="@+id/editText"
+        android:layout_alignLeft="@+id/buttonP"
+        android:layout_alignStart="@+id/buttonP" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -330,6 +331,25 @@
         android:layout_alignEnd="@+id/buttonDEL"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="@string/Factorial"
+        android:id="@+id/buttonF"
+        android:layout_below="@+id/editText"
+        android:layout_toRightOf="@+id/buttonC"
+        android:layout_alignRight="@+id/button9"
+        android:layout_alignEnd="@+id/button9"
+        android:minWidth="80dp"
+        android:background="@drawable/animation"
+        android:textColor="#ffffff"
+        android:textSize="32dp"
+        android:typeface="serif"
+        android:textStyle="bold"
+        android:layout_above="@+id/button8"
+        android:nestedScrollingEnabled="false" />
 
 
 </RelativeLayout>
